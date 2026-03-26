@@ -47,7 +47,7 @@ async function downloadDecryptedFileContent(file: File, key: string) {
     const decryptedContentBuffer = await decryptFileContent(file, key);
     const decryptedContent = new TextDecoder().decode(decryptedContentBuffer);
     
-    downloadContent(decryptedContent);
+    downloadContent(decryptedContent, file.name.replace(/\.seal$/, "") || "decrypted.txt");
 }
 
 export { downloadDecryptedFileContent };

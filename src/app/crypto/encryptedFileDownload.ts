@@ -44,7 +44,7 @@ async function downloadEncryptedFileContent(file: File, key: string) {
     const contentBase64 = toBase64(new Uint8Array(encryptedContent.data));
     const payload = `${ivBase64}\n${contentBase64}`;
 
-    downloadContent(payload)
+    downloadContent(payload, file.name + ".seal")
 }
 
 export { downloadEncryptedFileContent };
