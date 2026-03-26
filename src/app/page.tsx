@@ -1,4 +1,9 @@
 
+import EncryptionDownload from "./components/Crypto/EncryptionDownload/EncryptionDownload";
+import DecryptionDownload from "./components/Crypto/DecryptionDownload/DecryptionDownload";
+import FileUpload from "./components/FileUpload/FileUpload";
+import PasswordInput from "./components/PasswordInput/PasswordInput";
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -6,6 +11,10 @@ export default function Home() {
         <h1 className="text-6xl font-bold tracking-tight text-center text-gray-900 dark:text-white sm:text-left">
           Hello World!
         </h1>
+        <FileUpload />
+        <PasswordInput />
+        <EncryptionDownload />
+        <DecryptionDownload />
      </main>
     </div>
   );
