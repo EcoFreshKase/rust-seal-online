@@ -26,7 +26,7 @@ function DecryptionDownload() {
     return <div>
         <button
             type="button"
-            className="inline-flex items-center gap-2 rounded-md bg-emerald-600 px-4 py-2 text-white hover:bg-emerald-700"
+            className="inline-flex items-center gap-2 rounded-md bg-emerald-600 px-4 py-2 text-white hover:bg-emerald-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
             disabled={isDisabled}
             onClick={clickHandler}
         >
