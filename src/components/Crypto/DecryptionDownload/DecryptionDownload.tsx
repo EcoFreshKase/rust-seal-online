@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useFileContext } from "@/app/context/FileContext";
-import { usePasswordContext } from "@/app/context/PasswordContext";
-import { downloadDecryptedFileContent } from "@/app/crypto/decryptFile";
+import { useFileContext } from "@/context/FileContext";
+import { usePasswordContext } from "@/context/PasswordContext";
+import { downloadDecryptedFileContent } from "@/crypto/decryptFile";
 
 function DecryptionDownload() {
     const { file } = useFileContext();

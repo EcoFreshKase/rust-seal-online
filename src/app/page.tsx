@@ -1,8 +1,8 @@
 
-import EncryptionDownload from "./components/Crypto/EncryptionDownload/EncryptionDownload";
-import DecryptionDownload from "./components/Crypto/DecryptionDownload/DecryptionDownload";
-import FileUpload from "./components/FileUpload/FileUpload";
-import PasswordInput from "./components/PasswordInput/PasswordInput";
+import EncryptionDownload from "../components/Crypto/EncryptionDownload/EncryptionDownload";
+import DecryptionDownload from "../components/Crypto/DecryptionDownload/DecryptionDownload";
+import FileUpload from "../components/FileUpload/FileUpload";
+import PasswordInput from "../components/PasswordInput/PasswordInput";
 
 export default function Home() {
   return (

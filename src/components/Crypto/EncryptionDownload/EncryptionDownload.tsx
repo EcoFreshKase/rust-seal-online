@@ -1,8 +1,8 @@
 "use client";
 
-import { useFileContext } from "@/app/context/FileContext";
-import { usePasswordContext } from "@/app/context/PasswordContext";
-import { downloadEncryptedFileContent } from "@/app/crypto/encryptedFileDownload";
+import { useFileContext } from "@/context/FileContext";
+import { usePasswordContext } from "@/context/PasswordContext";
+import { downloadEncryptedFileContent } from "@/crypto/encryptedFileDownload";
 import { useState } from "react";
 
 function EncryptionDownload() {

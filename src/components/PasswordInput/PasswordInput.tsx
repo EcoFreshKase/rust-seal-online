@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { usePasswordContext } from "@/app/context/PasswordContext";
+import { usePasswordContext } from "@/context/PasswordContext";
 
 export default function PasswordInput() {
 	const { password, savePassword } = usePasswordContext();

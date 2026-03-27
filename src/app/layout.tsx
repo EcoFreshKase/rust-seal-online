@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { FileProvider } from "@/app/context/FileContext";
-import { PasswordProvider } from "./context/PasswordContext";
+import { FileProvider } from "@/context/FileContext";
+import { PasswordProvider } from "../context/PasswordContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",

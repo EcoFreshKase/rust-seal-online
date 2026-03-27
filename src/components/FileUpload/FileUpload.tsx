@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
-import { useFileContext } from "@/app/context/FileContext";
+import { useFileContext } from "@/context/FileContext";
 
 export default function FileUpload() {
 	const { file, saveFile: addFile, removeFile } = useFileContext();
