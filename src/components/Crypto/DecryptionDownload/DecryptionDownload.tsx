@@ -1,24 +1,25 @@
 "use client";
 
-import { useState } from "react";
 import { useFileContext } from "@/context/FileContext";
 import { usePasswordContext } from "@/context/PasswordContext";
 import { downloadDecryptedFileContent } from "@/crypto/decryptFile";
 
-function DecryptionDownload() {
+interface DecryptionDownloadProps {
+    setError: (error: string | null) => void;
+}
+
+function DecryptionDownload({ setError }: DecryptionDownloadProps) {
     const { file } = useFileContext();
     const { password } = usePasswordContext();
     const isDisabled = !file || !password;
-    const [isError, setIsError] = useState(false);
 
     const clickHandler = async () => {
         if (!isDisabled) {
             try {
-                setIsError(false);
                 await downloadDecryptedFileContent(file, password);
             } catch (error) {
                 console.error("Decryption error:", error);
-                setIsError(true);
+                setError("An error occurred during decryption. Please verify file format and password.");
             }
         }
     };
@@ -32,7 +33,6 @@ function DecryptionDownload() {
         >
             Decrypt file
         </button>
-        {isError && <p className="mt-2 text-sm text-red-600">An error occurred during decryption. Please verify file format and password.</p>}
     </div>;
 }
 

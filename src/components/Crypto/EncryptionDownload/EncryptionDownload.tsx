@@ -3,22 +3,23 @@
 import { useFileContext } from "@/context/FileContext";
 import { usePasswordContext } from "@/context/PasswordContext";
 import { downloadEncryptedFileContent } from "@/crypto/encryptedFileDownload";
-import { useState } from "react";
 
-function EncryptionDownload() {
+interface EncryptionDownloadProps {
+    setError: (error: string | null) => void;
+}
+
+function EncryptionDownload({ setError }: EncryptionDownloadProps) {
     const { file } = useFileContext();
     const { password } = usePasswordContext();
     const isDisabled = !file || !password;
-    const [isError, setIsError] = useState(false);
 
     const clickHandler = async () => {
         if (!isDisabled) {
             try { 
-                setIsError(false);
                 await downloadEncryptedFileContent(file, password);
             } catch (error) {
                 console.error("Encryption error:", error);
-                setIsError(true);
+                setError("An error occurred during encryption. Please try a larger password.");
             }
         }
     };
@@ -32,7 +33,6 @@ function EncryptionDownload() {
         >
             Encrypt file
         </button>
-        {isError && <p className="mt-2 text-sm text-red-600">An error occurred during encryption. Please try a larger password.</p>}
     </div>;
 }
 
