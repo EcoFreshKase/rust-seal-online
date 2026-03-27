@@ -17,6 +17,7 @@ spec:
       containers:
       - name: rust-seal-online
         image: ghcr.io/ecofreshkase/rust-seal-online:latest
+        pullPolicy: Always
         ports:
         - containerPort: 3000
           name: http
