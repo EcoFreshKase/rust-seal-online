@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rust-seal-online
+  labels:
+    app: rust-seal-online
+  annotations:
+    traefik.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: seal.jablonowski.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rust-seal-online
+                port:
+                  number: 3000
