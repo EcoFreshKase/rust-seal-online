@@ -34,6 +34,7 @@ jobs:
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -k k8s/
+          kubectl -n rust-seal-online rollout restart deployment/rust-seal-online
           kubectl rollout status deployment/rust-seal-online -n rust-seal-online --timeout=5m
 
       - name: Verify deployment
