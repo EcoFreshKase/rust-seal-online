@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: rust-seal-online 
+
+commonLabels:
+  app: rust-seal-online
+  managed-by: kustomize
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+
+images:
+  - name: ghcr.io/ecofreshkase/rust-seal-online
+    newTag: latest
+
+replicas:
+  - name: rust-seal-online
+    count: 1

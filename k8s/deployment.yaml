@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rust-seal-online
+  labels:
+    app: rust-seal-online
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rust-seal-online
+  template:
+    metadata:
+      labels:
+        app: rust-seal-online
+    spec:
+      containers:
+      - name: rust-seal-online
+        image: ghcr.io/ecofreshkase/rust-seal-online:latest
+        ports:
+        - containerPort: 3000
+          name: http
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: NEXT_TELEMETRY_DISABLED
+          value: "1"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
