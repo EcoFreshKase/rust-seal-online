@@ -14,7 +14,7 @@ export default function FileUpload() {
 		[addFile],
 	);
 
-	const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
+	const { getRootProps, getInputProps, isDragActive } = useDropzone({
 		onDrop,
 		noKeyboard: true,
 	});
@@ -37,7 +37,6 @@ export default function FileUpload() {
 				<p className="text-sm text-gray-700">{helpText}</p>
 				<button
 					type="button"
-					onClick={open}
 					className="mt-4 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
 				>
 					Upload file
